@@ -1,4 +1,5 @@
 .weather.json
+build
 node_modules
 prepare
 

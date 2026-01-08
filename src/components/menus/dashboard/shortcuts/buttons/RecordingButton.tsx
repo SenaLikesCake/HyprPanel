@@ -69,16 +69,18 @@ export const RecordingButton = (): JSX.Element => {
                     return;
                 }
 
-                const sanitizedPath = getRecordingPath().replace(/"/g, '\\"');
+                const command = `obs`;
+                executeCommand(command);
+                // const sanitizedPath = getRecordingPath().replace(/"/g, '\\"');
 
-                if (isRecording.get() === true) {
-                    App.get_window('dashboardmenu')?.set_visible(false);
-                    const command = `${SRC_DIR}/scripts/screen_record.sh stop "${sanitizedPath}"`;
-                    executeCommand(command);
-                } else {
-                    const monitorDropdownList = MonitorListDropdown() as Gtk.Menu;
-                    monitorDropdownList.popup_at_pointer(event);
-                }
+                // if (isRecording.get() === true) {
+                //     App.get_window('dashboardmenu')?.set_visible(false);
+                //     const command = `${SRC_DIR}/scripts/screen_record.sh stop "${sanitizedPath}"`;
+                //     executeCommand(command);
+                // } else {
+                // const monitorDropdownList = MonitorListDropdown() as Gtk.Menu;
+                // monitorDropdownList.popup_at_pointer(event);
+                // }
             }}
         >
             <label className={'button-label txt-icon'} label={'󰑊'} />
